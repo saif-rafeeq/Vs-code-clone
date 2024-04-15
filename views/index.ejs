@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VS code</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link rel="shortcut icon" href="../images/visual-studio-code-icon.png" type="image/x-icon">
+</head>
+
+<body>
+  <div id="overlay">
+    <div id="popup">
+      <h4>Rename</h4>
+      <form id="changename" action="">
+        <input type="text" name="filename" id="changeinp">
+        <input type="submit" value="Change" id="">
+      </form>
+    </div>
+  </div>
+  <div id="main">
+    <div id="left">
+      <div id="folder">
+        <h4>Some Folder</h4>
+        <div id="icons">
+          <i id="fileicon" class="ri-file-line"></i>
+          <i id="foldericon" class="ri-folder-line"></i>
+          <a href="/"><i class="ri-restart-line"></i></a>
+          <i class="ri-file-copy-line"></i>
+        </div>
+      </div>
+      <form action="/filecreate">
+        <input id="fileinp" type="text" name="filename" placeholder="Filename">
+      </form>
+      <form action="/foldercreate">
+        <input id="folderinp" type="text" name="foldername" placeholder="Foldername">
+      </form>
+      <div id="files">
+        <% data.forEach(function(elem){ %>
+          <div class="file">
+            <a href="/second/<%=elem.name%>">
+              <% if(elem.isDirectory()){ %>
+                <i class="ri-folder-line"></i>
+                <%} else{%>
+                  <i class="ri-file-line"></i>
+                  <%}%>
+                    <%=elem.name%>
+            </a>
+
+            <div class="ficons">
+              <i id="edit" data-val="<%=elem.name%>" class="ri-pencil-line"></i>
+              <% if(elem.isDirectory()){%>
+                <a href="/folder/delete/<%=elem.name%>"><i class="ri-delete-bin-line"></i></a>
+                <%} else{%>
+                  <a href="/file/delete/<%=elem.name%>"><i class="ri-delete-bin-line"></i></a>
+                  <%}%>
+            </div>
+          </div>
+          <%})%>
+      </div>
+    </div>
+    <div id="right">
+      <small>Nothing to show here.</small>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="../javascripts/script.js"></script>
+</body>
+
+</html>
